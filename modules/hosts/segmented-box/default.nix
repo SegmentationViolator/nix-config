@@ -1,6 +1,8 @@
-{ self, ... }: {
+{ inputs, self, ... }: {
     flake.hostModules.segmented-box = { pkgs, ... }: {
         imports = [
+            inputs.bluevein.nixosModules.default
+
             self.nixosModules.systemd-boot
 
             self.nixosModules.backlight
@@ -40,6 +42,11 @@
         programs = {
             git.enable = true;
             gnupg.agent.enable = true;
+        };
+
+        services.bluevein = {
+            enable = true;
+            efiDevice = "/dev/disk/by-label/WINBOOT";
         };
 
         time.timeZone = "Asia/Kolkata";

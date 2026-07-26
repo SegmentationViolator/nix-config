@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "bluevein": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784401019,
+        "narHash": "sha256-q/ZDM/hZljxsR88SwkZ3NpCUdfRYwjW9RjII5CcnE38=",
+        "owner": "meowrch",
+        "repo": "BlueVein",
+        "rev": "cf014bc9b49e61991e826e4b9450401c5d958e71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "meowrch",
+        "repo": "BlueVein",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -268,6 +288,7 @@
     },
     "root": {
       "inputs": {
+        "bluevein": "bluevein",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",

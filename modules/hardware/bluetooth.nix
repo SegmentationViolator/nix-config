@@ -1,12 +1,13 @@
 _: {
-    flake.nixosModules.bluetooth = _: {
-        hardware.bluetooth = {
-            enable = true;
-            powerOnBoot = true;
+    flake = {
+        nixosModules.bluetooth = _: {
+            hardware.bluetooth = {
+                enable = true;
 
-            settings.General = {
-                Experimental = true;
-                FastConnectable = true;
+                settings.General = {
+                    Experimental = true;
+                    FastConnectable = true;
+                };
             };
         };
     };

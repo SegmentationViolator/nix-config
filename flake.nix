@@ -1,5 +1,10 @@
 {
     inputs = {
+        bluevein = {
+            url = "github:meowrch/BlueVein";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         flake-parts.url = "github:hercules-ci/flake-parts";
 
         home-manager = {
@@ -8,18 +13,19 @@
         };
 
         import-tree.url = "github:vic/import-tree";
+
+        matugen = {
+            url = "github:InioX/Matugen";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.systems.follows = "systems";
+        };
+
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
         nur = {
             url = "github:nix-community/NUR";
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.flake-parts.follows = "flake-parts";
-        };
-
-        matugen = {
-            url = "github:InioX/Matugen";
-            inputs.nixpkgs.follows = "nixpkgs";
-            inputs.systems.follows = "systems";
         };
 
         nix-index-database = {
