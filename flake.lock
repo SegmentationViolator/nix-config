@@ -261,11 +261,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785332673,
-        "narHash": "sha256-+7Qknh7UhCR2kXAQqGeSAj2vfb6f2WM5NJOoKOz/W0U=",
+        "lastModified": 1785334519,
+        "narHash": "sha256-ln0Qo9iREs92NIhQoP4yYMAlz7CECt5ekaj4cjIJy2E=",
         "owner": "SegmentationViolator",
         "repo": "nvf-config",
-        "rev": "4dd5ec49ecaa26e0b989fe7ef397b3dfc4d19d4b",
+        "rev": "04f2d40f95d4a23b1c689a459dfcf008ff929789",
         "type": "github"
       },
       "original": {
