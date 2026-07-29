@@ -35,6 +35,8 @@
                                 inputs.nix-index-database.homeModules.default
 
                                 (_: {
+                                    imports = [ self.flakeModules.unfree-packages ];
+
                                     programs.neovim = {
                                         enable = true;
                                         package = inputs.nvf-config.packages.${system}.default;
