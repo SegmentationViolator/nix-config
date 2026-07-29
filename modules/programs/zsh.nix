@@ -13,7 +13,8 @@ _: {
 
             autosuggestion.enable = true;
             enableCompletion = true;
-            syntaxHighlighting.enable = true;
+            fastSyntaxHighlighting.enable = true;
+            historySubstringSearch.enable = true;
 
             history = {
                 ignoreAllDups = true;

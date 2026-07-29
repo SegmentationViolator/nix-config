@@ -33,9 +33,11 @@
                                 inputs.matugen.nixosModules.default
                                 inputs.nix-index-database.homeModules.default
                                 (_: {
-                                    home.packages = [
-                                        inputs.nvf-config.packages.${system}.default
-                                    ];
+                                    programs.neovim = {
+                                        enable = true;
+                                        package = inputs.nvf-config.packages.${system}.default;
+                                        defaultEditor = true;
+                                    };
                                 })
                             ];
                     };
