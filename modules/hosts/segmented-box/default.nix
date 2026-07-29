@@ -44,10 +44,7 @@
             gnupg.agent.enable = true;
         };
 
-        services.bluevein = {
-            enable = true;
-            efiDevice = "/dev/disk/by-label/WINBOOT";
-        };
+        services.bluevein.enable = true;
 
         time.timeZone = "Asia/Kolkata";
 
