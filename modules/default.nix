@@ -6,8 +6,6 @@
     };
 
     imports = [
-        self.flakeModules.unfree-packages
-
         inputs.flake-parts.flakeModules.modules
         inputs.home-manager.flakeModules.home-manager
     ];
@@ -31,6 +29,7 @@
                         };
 
                         modules = [
+                                self.flakeModules.unfree-packages
                                 self.userModules.ale.home
 
                                 inputs.matugen.nixosModules.default
@@ -42,8 +41,6 @@
                                         package = inputs.nvf-config.packages.${system}.default;
                                         defaultEditor = true;
                                     };
-
-                                    unfreePackages = [ "diagram.nvim" ];
                                 })
                             ];
                     };
@@ -52,6 +49,7 @@
                     inherit system;
 
                     modules = [
+                        self.flakeModules.unfree-packages
                         self.hostModules.segmented-box
 
                         (_: {
