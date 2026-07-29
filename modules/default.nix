@@ -30,8 +30,10 @@
 
                         modules = [
                                 self.userModules.ale.home
+
                                 inputs.matugen.nixosModules.default
                                 inputs.nix-index-database.homeModules.default
+
                                 (_: {
                                     programs.neovim = {
                                         enable = true;
@@ -45,7 +47,13 @@
                 nixosConfigurations."segmented-box" = inputs.nixpkgs.lib.nixosSystem {
                     inherit system;
 
-                    modules = [ self.hostModules.segmented-box ];
+                    modules = [
+                        self.hostModules.segmented-box
+
+                        (_: {
+                            nixpkgs.overlays = [ inputs.niri.overlays.default ];
+                        })
+                    ];
                 };
             };
     };

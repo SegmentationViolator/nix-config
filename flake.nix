@@ -20,17 +20,22 @@
             inputs.systems.follows = "systems";
         };
 
+        niri = {
+            url = "github:niri-wm/niri";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+        nix-index-database = {
+            url = "github:nix-community/nix-index-database";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 
         nur = {
             url = "github:nix-community/NUR";
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.flake-parts.follows = "flake-parts";
-        };
-
-        nix-index-database = {
-            url = "github:nix-community/nix-index-database";
-            inputs.nixpkgs.follows = "nixpkgs";
         };
 
         nvf-config = {
