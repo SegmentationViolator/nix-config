@@ -17,8 +17,8 @@
     flake.userModules.ale.home = { config, lib, pkgs, ... }:
         let
             wallpaper = pkgs.fetchurl {
-                url = "https://w.wallhaven.cc/full/9o/wallhaven-9oo8k1.jpg";
-                hash = "sha256-Ttp3fUJGhcnayvCA+qrZqQ/MNTtYeD/qexFvvoNdnBo=";
+                url = "https://w.wallhaven.cc/full/l3/wallhaven-l3kjql.jpg";
+                hash = "sha256-vEp1jA/UeQFnFMx8HtV6+KEMwU0nl9Ffa42VRf8ltRI=";
             };
 
             backdrop = pkgs.runCommand "backdrop.png" {  } ''
