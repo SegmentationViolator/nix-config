@@ -3,8 +3,6 @@
         imports = [ self.nixosModules.graphics ];
 
         specialisation.nvidia.configuration = {
-            imports = [ self.flakeModules.unfree-packages ];
-
             hardware = {
                 graphics.enable = true;
 

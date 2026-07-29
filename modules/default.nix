@@ -5,7 +5,9 @@
         description = "Reusable host-level NixOS modules.";
     };
 
-    imports = [ 
+    imports = [
+        self.flakeModules.unfree-packages
+
         inputs.flake-parts.flakeModules.modules
         inputs.home-manager.flakeModules.home-manager
     ];
@@ -35,13 +37,13 @@
                                 inputs.nix-index-database.homeModules.default
 
                                 (_: {
-                                    imports = [ self.flakeModules.unfree-packages ];
-
                                     programs.neovim = {
                                         enable = true;
                                         package = inputs.nvf-config.packages.${system}.default;
                                         defaultEditor = true;
                                     };
+
+                                    unfreePackages = [ "diagram.nvim" ];
                                 })
                             ];
                     };
