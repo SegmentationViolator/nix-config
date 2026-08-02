@@ -1,5 +1,5 @@
 _: { 
-    flake.flakeModules.wallpaper = { lib, config, ... }: {
+    flake.modules.wallpaper = { lib, config, ... }: {
         config = {
             programs.matugen.wallpaper = config.wallpaper;
 

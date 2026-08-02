@@ -5,7 +5,6 @@
 
             self.nixosModules.systemd-boot
 
-            self.nixosModules.backlight
             self.nixosModules.bluetooth
             self.nixosModules.networking
             self.nixosModules.nvidia

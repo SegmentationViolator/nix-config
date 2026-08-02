@@ -1,12 +1,25 @@
 { self, inputs, lib, ... }: {
-    options.flake.hostModules = lib.mkOption {
-        type = lib.types.lazyAttrsOf lib.types.deferredModule;
-        default = {};
-        description = "Reusable host-level NixOS modules.";
+    options.flake = {
+        modules = lib.mkOption {
+            type = lib.types.lazyAttrsOf lib.types.deferredModule;
+            default = {};
+            description = "Reusable nix modules.";
+        };
+
+        hostModules = lib.mkOption {
+            type = lib.types.lazyAttrsOf lib.types.deferredModule;
+            default = {};
+            description = "Reusable host-level NixOS modules.";
+        };
+
+        userModules = lib.mkOption {
+            type = lib.types.lazyAttrsOf lib.types.deferredModule;
+            default = {};
+            description = "Reusable user-level modules.";
+        };
     };
 
     imports = [
-        inputs.flake-parts.flakeModules.modules
         inputs.home-manager.flakeModules.home-manager
     ];
 
@@ -29,8 +42,8 @@
                         };
 
                         modules = [
-                                self.flakeModules.unfree-packages
-                                self.flakeModules.wallpaper
+                                self.modules.unfree-packages
+                                self.modules.wallpaper
 
                                 self.userModules.ale.home
 
@@ -52,7 +65,7 @@
                     inherit system;
 
                     modules = [
-                        self.flakeModules.unfree-packages
+                        self.modules.unfree-packages
                         self.hostModules.segmented-box
                     ];
                 };
