@@ -30,10 +30,13 @@
 
                         modules = [
                                 self.flakeModules.unfree-packages
+                                self.flakeModules.wallpaper
+
                                 self.userModules.ale.home
 
                                 inputs.matugen.nixosModules.default
                                 inputs.nix-index-database.homeModules.default
+                                inputs.noctalia.homeModules.default
 
                                 (_: {
                                     programs.neovim = {

@@ -7,14 +7,13 @@ _: {
         programs.zsh.enable = true;
     };
 
-    flake.homeModules.zsh = _: {
+    flake.homeModules.zsh = { lib, ... }: {
         programs.zsh = {
             enable = true;
 
             autosuggestion.enable = true;
             enableCompletion = true;
             fastSyntaxHighlighting.enable = true;
-            historySubstringSearch.enable = true;
 
             history = {
                 ignoreAllDups = true;
@@ -22,6 +21,17 @@ _: {
                 save = 10000;
                 size = 10000;
             };
+
+            historySubstringSearch = {
+                enable = true;
+                searchDownKey = "$terminfo[kcud1]";
+                searchUpKey = "$terminfo[kcuu1]";
+            };
+
+            initContent = lib.mkOrder 550 ''
+                HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="underline"
+                HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=""
+            '';
         };
     };
 }

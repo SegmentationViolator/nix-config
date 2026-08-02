@@ -14,29 +14,13 @@
         };
     };
 
-    flake.userModules.ale.home = { config, lib, pkgs, ... }:
+    flake.userModules.ale.home = { config, pkgs, ... }:
         let
-            wallpaper = pkgs.fetchurl {
-                url = "https://w.wallhaven.cc/full/l3/wallhaven-l3kjql.jpg";
-                hash = "sha256-vEp1jA/UeQFnFMx8HtV6+KEMwU0nl9Ffa42VRf8ltRI=";
-            };
-
-            backdrop = pkgs.runCommand "backdrop.png" {  } ''
-                ${lib.getExe' pkgs.imagemagick "magick"} ${wallpaper} -blur 0x8 -fill black -colorize 40% $out
-            '';
-
             icon-theme = pkgs.papirus-icon-theme.override {
                 color = "red";
             };
         in
         {
-
-            home = {
-                username = "ale";
-                homeDirectory = "/home/ale";
-                stateVersion = "26.11";
-            };
-
             imports = [
                 self.homeModules.direnv
                 self.homeModules.gh
@@ -46,6 +30,41 @@
                 self.homeModules.zsh
                 self.homeModules.mako
             ];
+
+            wallpaper = pkgs.fetchurl {
+                url = "https://w.wallhaven.cc/full/l3/wallhaven-l3kjql.jpg";
+                hash = "sha256-vEp1jA/UeQFnFMx8HtV6+KEMwU0nl9Ffa42VRf8ltRI=";
+            };
+
+            home = {
+                username = "ale";
+                homeDirectory = "/home/ale";
+
+                packages = with pkgs; [
+                    bottom
+                    codex
+                    devenv
+                    fastfetch
+                    mpv
+                    motrix-next
+                    nautilus
+                    nur.repos.forkprince.helium-nightly
+                    obs-studio
+                    overskride
+                    tor-browser
+                    vesktop
+                    wl-clipboard
+                    xdg-utils
+
+                    font-awesome
+                    monaspace
+                    noto-fonts
+                    noto-fonts-cjk-sans
+                    noto-fonts-color-emoji
+                ];
+
+                stateVersion = "26.11";
+            };
 
             fonts.fontconfig.enable = true;
 
@@ -60,35 +79,10 @@
                 };
 
                 theme = {
-                    name = "Arc";
-                    package = pkgs.arc-theme;
+                    name = "Colloid-Dark";
+                    package = pkgs.colloid-gtk-theme;
                 };
             };
-
-            home.packages = with pkgs; [
-                bottom
-                codex
-                devenv
-                fastfetch
-                mpv
-                motrix-next
-                nautilus
-                nur.repos.forkprince.helium-nightly
-                obs-studio
-                overskride
-                swaybg
-                tor-browser
-                vesktop
-                wl-clipboard
-                xdg-utils
-
-                font-awesome
-                monaspace
-                noto-fonts
-                noto-fonts-cjk-sans
-                noto-fonts-color-emoji
-            ];
-
 
             home.pointerCursor =
                 let
@@ -118,162 +112,77 @@
 
             home.preferXdgDirectories = true;
 
-            programs.fuzzel = {
-                enable = true;
+            programs = {
+                ghostty.settings.font-family = "Monaspace Neon";
 
-                settings = {
-                    main = {
-                        icon-theme = "Papirus";
-                        terminal = "${lib.getExe' pkgs.ghostty "ghostty"} -e {cmd}";
+                git = {
+                    enable = true;
+
+                    settings = {
+                        init.defaultBranch = "main";
+                        user = {
+                            name = "Segmentation Violator";
+                            email = "segmentationviolator@proton.me";
+                        };
                     };
 
-                    colors = {
-                        background = "${config.programs.matugen.theme.colors.background.default.color}ff";
-                        text = "${config.programs.matugen.theme.colors.on_surface.default.color}ff";
-                        prompt = "${config.programs.matugen.theme.colors.secondary.default.color}ff";
-                        placeholder = "${config.programs.matugen.theme.colors.tertiary.default.color}ff";
-                        input = "${config.programs.matugen.theme.colors.primary.default.color}ff";
-                        match = "${config.programs.matugen.theme.colors.tertiary.default.color}ff";
-                        selection = "${config.programs.matugen.theme.colors.primary.default.color}ff";
-                        selection-text = "${config.programs.matugen.theme.colors.on_surface.default.color}ff";
-                        selection-match = "${config.programs.matugen.theme.colors.on_primary.default.color}ff";
-                        counter = "${config.programs.matugen.theme.colors.secondary.default.color}ff";
-                        border = "${config.programs.matugen.theme.colors.primary.default.color}ff";
-                    };
-                };
-            };
-
-            programs.ghostty.settings.font-family = "Monaspace Neon";
-
-            programs.git = {
-                enable = true;
-
-                settings = {
-                    init.defaultBranch = "main";
-                    user = {
-                        name = "Segmentation Violator";
-                        email = "segmentationviolator@proton.me";
+                    signing = {
+                        signByDefault = true;
+                        key = "segmentationviolator@proton.me";
                     };
                 };
 
-                signing = {
-                    signByDefault = true;
-                    key = "segmentationviolator@proton.me";
-                };
-            };
+                home-manager.enable = true;
 
-            programs.home-manager.enable = true;
+                hyfetch = {
+                    enable = true;
 
-            programs.hyfetch = {
-                enable = true;
-
-                settings = {
-                    preset = "transbian";
-                    mode = "rgb";
-                    light_dark = "dark";
-                    lightness = 0.65;
-                    backend = "fastfetch";
-                    color_align = { mode = "horizontal"; };
-                    pride_month_disable = false;
-                };
-            };
-
-            programs.matugen = {
-                inherit wallpaper;
-                enable = true;
-                source_color_index = 0;
-
-                templates = {
-                    niri = {
-                        input_path = "${./niri.kdl}";
-                        output_path = "~/niri.kdl";
-                    };
-                    waybar = {
-                        input_path = "${./waybar.css}";
-                        output_path = "~/waybar.css";
+                    settings = {
+                        preset = "transbian";
+                        mode = "rgb";
+                        light_dark = "dark";
+                        lightness = 0.65;
+                        backend = "fastfetch";
+                        color_align = { mode = "horizontal"; };
+                        pride_month_disable = false;
                     };
                 };
-            };
 
-            programs.nix-index.enable = true;
+                matugen = {
+                    enable = true;
+                    source_color_index = 0;
 
-            programs.waybar = {
-                mpris-player = "Feishin";
-                style = builtins.readFile (config.programs.matugen.theme.files + "/waybar.css");
-            };
-
-            services.awww = {
-                enable = true;
-                extraArgs = [ "--no-cache" ];
-            };
-
-            services.mako.settings = {
-                background-color = "#${config.programs.matugen.theme.colors.on_primary.default.color}";
-                border-color = "#${config.programs.matugen.theme.colors.tertiary_container.default.color}";
-                icon-path = "${icon-theme}/share/icons/Papirus";
-                text-color = "#${config.programs.matugen.theme.colors.tertiary.default.color}";
-
-                "urgency=high" = {
-                    border-color = "#${config.programs.matugen.theme.colors.error_container.default.color}";
+                    templates = {
+                        niri = {
+                            input_path = "${./niri.kdl}";
+                            output_path = "~/niri.kdl";
+                        };
+                    };
                 };
+
+                nix-index.enable = true;
             };
 
             systemd.user.startServices = "sd-switch";
 
-            systemd.user.services.set-wallpaper = {
-                Install = {
-                    WantedBy = [ "graphical-session.target" ];
+            xdg = {
+                enable = true;
+
+                configFile."autostart/com.stremio.service.desktop" = {
+                    force = true;
+                    text = "";
                 };
 
-                Unit = {
-                    ConditionEnvironment = "WAYLAND_DISPLAY";
-                    Description = "Set Wallpaper Using awww";
-                    After = [ "graphical-session.target" ];
-                    PartOf = [ "graphical-session.target" ];
+                configFile."niri/config.kdl".source = config.programs.matugen.theme.files + "/niri.kdl";
+
+                desktopEntries = {
+                    bottom = {
+                        name = "bottom";
+                        noDisplay = true;
+                    };
                 };
 
-                Service = {
-                    ExecStart = "${lib.getExe' pkgs.awww "awww"} img --resize stretch --transition-type center ${wallpaper}";
-                    Restart = "on-failure";
-                    Type = "exec";
-                };
+                userDirs.enable = true;
             };
-
-            systemd.user.services.set-backdrop = {
-                Install = {
-                    WantedBy = [ "graphical-session.target" ];
-                };
-
-                Unit = {
-                    ConditionEnvironment = "WAYLAND_DISPLAY";
-                    Description = "Set Backdrop Using swaybg";
-                    After = [ "graphical-session.target" ];
-                    PartOf = [ "graphical-session.target" ];
-                };
-
-                Service = {
-                    ExecStart = "${lib.getExe' pkgs.swaybg "swaybg"} -m stretch -i ${backdrop}";
-                    Restart = "on-failure";
-                    Type = "exec";
-                };
-            };
-
-            xdg.enable = true;
-
-            xdg.configFile."autostart/com.stremio.service.desktop" = {
-                force = true;
-                text = "";
-            };
-
-            xdg.configFile."niri/config.kdl".source = config.programs.matugen.theme.files + "/niri.kdl";
-
-            xdg.desktopEntries = {
-                bottom = {
-                    name = "bottom";
-                    noDisplay = true;
-                };
-            };
-
-            xdg.userDirs.enable = true;
         };
 }
