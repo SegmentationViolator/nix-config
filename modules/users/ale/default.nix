@@ -197,11 +197,6 @@
 
             programs.nix-index.enable = true;
 
-            programs.starship = {
-                enable = true;
-                enableZshIntegration = true;
-            };
-
             programs.waybar = {
                 mpris-player = "Feishin";
                 style = builtins.readFile (config.programs.matugen.theme.files + "/waybar.css");
