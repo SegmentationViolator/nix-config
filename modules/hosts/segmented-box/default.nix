@@ -13,8 +13,7 @@
 
             self.nixosModules.doas
 
-            self.nixosModules.navidrome
-            self.nixosModules.power
+            self.nixosModules.power-management
 
             self.userModules.ale.nixos
         ];

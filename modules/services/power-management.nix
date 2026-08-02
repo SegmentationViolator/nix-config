@@ -1,5 +1,5 @@
 _: {
-    flake.nixosModules.power = _: {
+    flake.nixosModules.power-management = _: {
         services.logind.settings.Login = {
             HandleLidSwitch = "suspend";
             HandleLidSwitchExternalPower = "lock";

@@ -26,7 +26,7 @@
             '';
 
             icon-theme = pkgs.papirus-icon-theme.override {
-                color = "violet";
+                color = "red";
             };
         in
         {
@@ -69,7 +69,6 @@
                 bottom
                 codex
                 devenv
-                feishin
                 fastfetch
                 mpv
                 motrix-next

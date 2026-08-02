@@ -20,11 +20,6 @@
             inputs.systems.follows = "systems";
         };
 
-        niri = {
-            url = "github:niri-wm/niri";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
         nix-index-database = {

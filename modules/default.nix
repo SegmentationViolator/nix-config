@@ -51,10 +51,6 @@
                     modules = [
                         self.flakeModules.unfree-packages
                         self.hostModules.segmented-box
-
-                        (_: {
-                            nixpkgs.overlays = [ inputs.niri.overlays.default ];
-                        })
                     ];
                 };
             };
