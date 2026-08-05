@@ -163,7 +163,7 @@ binds {
     XF86AudioLowerVolume { spawn "noctalia" "msg" "volume-down"; }
     XF86AudioMute { spawn "noctalia" "msg" "volume-mute"; }
     XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up"; }
-    XF86MonBrightnessDown { spawn-sh "noctalia" "msg" "brightness-down"; }
+    XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
 
     Mod+Shift+Slash { show-hotkey-overlay; }
 

@@ -17,7 +17,7 @@
     flake.userModules.ale.home = { config, pkgs, ... }:
         let
             icon-theme = pkgs.papirus-icon-theme.override {
-                color = "red";
+                color = "pink";
             };
         in
         {
@@ -30,11 +30,6 @@
                 self.homeModules.zsh
             ];
 
-            wallpaper = pkgs.fetchurl {
-                url = "https://w.wallhaven.cc/full/l3/wallhaven-l3kjql.jpg";
-                hash = "sha256-vEp1jA/UeQFnFMx8HtV6+KEMwU0nl9Ffa42VRf8ltRI=";
-            };
-
             home = {
                 username = "ale";
                 homeDirectory = "/home/ale";
@@ -45,11 +40,9 @@
                     devenv
                     fastfetch
                     mpv
-                    motrix-next
                     nautilus
                     nur.repos.forkprince.helium-nightly
                     obs-studio
-                    overskride
                     tor-browser
                     vesktop
                     wl-clipboard
@@ -95,7 +88,7 @@
                         size = 24;
                         package = pkgs.symlinkJoin {
                             inherit name;
-                            paths = [];
+                            paths = [ ];
 
                             postBuild = ''
                                 mkdir -p $out/share/icons
@@ -147,16 +140,9 @@
                     };
                 };
 
-                matugen = {
-                    enable = true;
-                    source_color_index = 0;
-
-                    templates = {
-                        niri = {
-                            input_path = "${./niri.kdl}";
-                            output_path = "~/niri.kdl";
-                        };
-                    };
+                noctalia.settings.theme.templates.user.niri = {
+                    input_path = ./niri.kdl;
+                    output_path = "${config.xdg.configHome}/niri/config.kdl";
                 };
 
                 nix-index.enable = true;
@@ -172,11 +158,19 @@
                     text = "";
                 };
 
-                configFile."niri/config.kdl".source = config.programs.matugen.theme.files + "/niri.kdl";
-
                 desktopEntries = {
                     bottom = {
                         name = "bottom";
+                        noDisplay = true;
+                    };
+
+                    "dev.noctalia.Noctalia" = {
+                        name = "Noctalia";
+                        noDisplay = true;
+                    };
+
+                    tuned-gui = {
+                        name = "tuned-gui";
                         noDisplay = true;
                     };
                 };

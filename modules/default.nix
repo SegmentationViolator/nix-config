@@ -49,11 +49,9 @@
 
                         modules = [
                                 self.modules.generic.unfree-packages
-                                self.modules.generic.wallpaper
 
                                 self.userModules.ale.home
 
-                                inputs.matugen.nixosModules.default
                                 inputs.nix-index-database.homeModules.default
                                 inputs.noctalia.homeModules.default
 

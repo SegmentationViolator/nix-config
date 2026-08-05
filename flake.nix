@@ -14,12 +14,6 @@
 
         import-tree.url = "github:vic/import-tree";
 
-        matugen = {
-            url = "github:InioX/Matugen";
-            inputs.nixpkgs.follows = "nixpkgs";
-            inputs.systems.follows = "systems";
-        };
-
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
         nix-index-database = {
