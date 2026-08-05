@@ -165,10 +165,10 @@ binds {
     XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up"; }
     XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
 
-    Mod+Shift+Slash { show-hotkey-overlay; }
-
     Mod+Space     { spawn "ghostty" "+new-window"; }
     Mod+Alt+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+
+    Ctrl+Alt+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
 
     Mod+H { focus-column-left; }
     Mod+L { focus-column-right; }
@@ -179,14 +179,14 @@ binds {
     Mod+Ctrl+H { move-column-left; }
     Mod+Ctrl+L { move-column-right; }
 
-    Mod+Ctrl+J hotkey-overlay-title="Move Window Down" { move-window-down; }
-    Mod+Ctrl+K hotkey-overlay-title="Move Window Up" { move-window-up; }
+    Mod+Ctrl+J { move-window-down; }
+    Mod+Ctrl+K { move-window-up; }
 
     Mod+Shift+J { focus-workspace-down; }
     Mod+Shift+K { focus-workspace-up; }
 
-    Mod+Ctrl+Shift+H hotkey-overlay-title="Move Window to Column Left" { consume-or-expel-window-left; }
-    Mod+Ctrl+Shift+L hotkey-overlay-title="Move Window to Column Right" { consume-or-expel-window-right; }
+    Mod+Ctrl+Shift+H { consume-or-expel-window-left; }
+    Mod+Ctrl+Shift+L { consume-or-expel-window-right; }
 
     Mod+Ctrl+Shift+J { move-window-to-workspace-down; }
     Mod+Ctrl+Shift+K { move-window-to-workspace-up; }
@@ -196,7 +196,7 @@ binds {
 
     Mod+Tab { switch-preset-column-width; }
 
-    Mod+Shift+Tab hotkey-overlay-title="Switch Preset Window Heights" { switch-preset-window-height; }
+    Mod+Shift+Tab { switch-preset-window-height; }
 
     Mod+Shift+C { close-window; }
     Mod+F       { maximize-column; }
@@ -206,19 +206,18 @@ binds {
     Mod+V       { switch-focus-between-floating-and-tiling; }
 
     Mod+Shift+S { screenshot; }
+    Print       { screenshot-screen; }
+    Ctrl+Print  { screenshot-window; }
 
-    Print      hotkey-overlay-title="Take a Fullscreen Screenshot" { screenshot-screen; }
-    Ctrl+Print hotkey-overlay-title="Take a Window Screenshot" { screenshot-window; }
-
-    Mod+O       { toggle-overview; }
+    Mod+O { toggle-overview; }
 
     Mod+Shift+Q { quit skip-confirmation=true; }
 
-    Mod+Shift+P { power-off-monitors; }
-}
-
-switch-events {
-    lid-close { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
+    Mod+Alt+C { spawn "noctalia" "msg" "panel-toggle" "session"; }
+    Mod+Alt+L { spawn "noctalia" "msg" "session" "lock"; }
+    Mod+Alt+P { spawn "noctalia" "msg" "session" "shutdown"; }
+    Mod+Alt+R { spawn "noctalia" "msg" "session" "reboot"; }
+    Mod+Alt+S { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
 }
 
 debug {

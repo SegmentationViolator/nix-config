@@ -14,6 +14,17 @@ _: {
 
                 location.address = "Mumbai, MH, IN";
 
+                shell = {
+                    polkit_agent = true;
+                    screen_time_enabled = true;
+
+                    panel = {
+                        control_center_placement = "floating";
+                        wallpaper_placement      = "floating";
+                        session_placement        = "floating";
+                    };
+                };
+
                 theme = {
                     mode = "dark";
                     source = "wallpaper";
