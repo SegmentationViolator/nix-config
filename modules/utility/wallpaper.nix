@@ -1,11 +1,11 @@
 _: { 
-    flake.modules.wallpaper = { lib, config, ... }: {
+    flake.modules.generic.wallpaper = { lib, config, ... }: {
         config = {
             programs.matugen.wallpaper = config.wallpaper;
 
-            programs.noctalia.wallpaper = {
+            programs.noctalia.settings.wallpaper = {
                 enable = true;
-                default.wallpaper = config.wallpaper;
+                default.path = config.wallpaper;
             };
         };
 

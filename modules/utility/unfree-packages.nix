@@ -1,5 +1,5 @@
 _: {
-    flake.modules.unfree-packages = { lib, config, ... }: {
+    flake.modules.generic.unfree-packages = { lib, config, ... }: {
         config.nixpkgs.config.allowUnfreePredicate = pkg:
             builtins.elem (lib.getName pkg) config.unfreePackages;
 

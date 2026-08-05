@@ -25,10 +25,9 @@
                 self.homeModules.direnv
                 self.homeModules.gh
                 self.homeModules.ghostty
+                self.homeModules.noctalia
                 self.homeModules.stremio-service
-                self.homeModules.waybar
                 self.homeModules.zsh
-                self.homeModules.mako
             ];
 
             wallpaper = pkgs.fetchurl {

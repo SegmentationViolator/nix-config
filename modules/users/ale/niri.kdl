@@ -159,16 +159,16 @@ recent-windows {
 }
 
 binds {
-    XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
-    XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
-    XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
-    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
-    XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
+    XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up"; }
+    XF86AudioLowerVolume { spawn "noctalia" "msg" "volume-down"; }
+    XF86AudioMute { spawn "noctalia" "msg" "volume-mute"; }
+    XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up"; }
+    XF86MonBrightnessDown { spawn-sh "noctalia" "msg" "brightness-down"; }
 
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Space     { spawn "ghostty" "+new-window"; }
-    Mod+Alt+Space { spawn "noctalia msg panel-toggle launcher"; }
+    Mod+Alt+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
 
     Mod+H { focus-column-left; }
     Mod+L { focus-column-right; }
