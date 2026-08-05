@@ -13,20 +13,22 @@ _: {
 
         fileSystems = {
             "/" =
-                { device = "/dev/disk/by-label/NIXROOT";
+                {
+                    device = "/dev/disk/by-label/NIXROOT";
                     fsType = "ext4";
                 };
 
             "/boot" =
-                { device = "/dev/disk/by-label/NIXBOOT";
+                {
+                    device = "/dev/disk/by-label/NIXBOOT";
                     fsType = "vfat";
                     options = [ "fmask=0022" "dmask=0022" ];
                 };
 
             "/mnt/media" =
-                { device = "/dev/disk/by-label/Media";
+                {
+                    device = "/dev/disk/by-label/Media";
                     fsType = "ntfs3";
-                    options = [ "fmask=000" "dmask=000" ];
                 };
         };
 
