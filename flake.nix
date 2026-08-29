@@ -42,6 +42,14 @@
             };
         };
 
+        splayer-next = {
+            url = "github:SegmentationViolator/SPlayer-Next/feat/flake";
+            inputs = {
+                nixpkgs.follows = "nixpkgs";
+                systems.follows = "systems";
+            };
+        };
+
         systems.url = "github:nix-systems/x86_64-linux";
     };
     outputs = { flake-parts, import-tree, ... } @ inputs:

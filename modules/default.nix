@@ -61,6 +61,8 @@
                                         package = inputs.nvf-config.packages.${system}.default;
                                         defaultEditor = true;
                                     };
+
+                                    home.packages = [ inputs.splayer-next.packages.${system}.default ];
                                 })
                             ];
                     };

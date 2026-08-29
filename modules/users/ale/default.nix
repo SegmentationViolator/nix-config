@@ -35,7 +35,6 @@
                 homeDirectory = "/home/ale";
 
                 packages = with pkgs; [
-                    bottom
                     codex
                     devenv
                     fastfetch
@@ -103,6 +102,12 @@
                         "Kafka";
 
             home.preferXdgDirectories = true;
+
+            dconf.settings = {
+                "org/gnome/desktop/interface" = {
+                    gtk-enable-primary-paste = true;
+                };
+            };
 
             programs = {
                 ghostty.settings.font-family = "Monaspace Neon";
