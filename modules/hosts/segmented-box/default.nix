@@ -57,7 +57,7 @@
                 "riscv64-linux"
             ];
 
-            trusted-users = [ "root" "@wheel" ];
+            trusted-users = [ "@wheel" ];
         };
 
         system.stateVersion = "26.11";
