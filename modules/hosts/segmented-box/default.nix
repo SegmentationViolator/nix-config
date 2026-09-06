@@ -56,6 +56,8 @@
                 "aarch64-linux"
                 "riscv64-linux"
             ];
+
+            trusted-users = [ "root" "@wheel" ];
         };
 
         system.stateVersion = "26.11";
