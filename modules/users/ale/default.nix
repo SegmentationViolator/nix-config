@@ -30,6 +30,8 @@
                 self.homeModules.zsh
             ];
 
+            nix.package = pkgs.nix;
+
             home = {
                 username = "ale";
                 homeDirectory = "/home/ale";
