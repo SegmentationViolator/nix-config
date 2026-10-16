@@ -5,8 +5,6 @@
             self.nixosModules.zsh
         ];
 
-        users.mutableUsers = true;
-
         users.users.ale = {
             isNormalUser = true;
             extraGroups = [ "networkmanager" "wheel" ];
@@ -17,7 +15,7 @@
     flake.userModules.ale.home = { config, pkgs, ... }:
         let
             icon-theme = pkgs.papirus-icon-theme.override {
-                color = "pink";
+                color = "red";
             };
         in
         {
@@ -37,13 +35,12 @@
                 homeDirectory = "/home/ale";
 
                 packages = with pkgs; [
-                    codex
                     devenv
                     fastfetch
                     mpv
                     nautilus
-                    nur.repos.forkprince.helium-nightly
                     obs-studio
+                    splayer-next
                     tor-browser
                     vesktop
                     wl-clipboard

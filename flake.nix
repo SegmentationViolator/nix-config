@@ -23,25 +23,11 @@
 
         noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
-        nur = {
-            url = "github:nix-community/NUR";
-            inputs.nixpkgs.follows = "nixpkgs";
-            inputs.flake-parts.follows = "flake-parts";
-        };
-
         nvf-config = {
             url = "github:SegmentationViolator/nvf-config";
             inputs = {
                 flake-parts.follows = "flake-parts";
                 import-tree.follows = "import-tree";
-                nixpkgs.follows = "nixpkgs";
-                systems.follows = "systems";
-            };
-        };
-
-        splayer-next = {
-            url = "github:SegmentationViolator/SPlayer-Next/feat/flake";
-            inputs = {
                 nixpkgs.follows = "nixpkgs";
                 systems.follows = "systems";
             };
