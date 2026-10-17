@@ -41,10 +41,6 @@
                     inputs.home-manager.lib.homeManagerConfiguration {
                         pkgs = import inputs.nixpkgs {
                             inherit system;
-
-                            overlays = [
-                                inputs.nur.overlays.default
-                            ];
                         };
 
                         modules = [

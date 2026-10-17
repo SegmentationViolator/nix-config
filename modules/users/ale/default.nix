@@ -24,6 +24,7 @@
                 self.homeModules.gh
                 self.homeModules.ghostty
                 self.homeModules.noctalia
+                self.homeModules.librewolf
                 self.homeModules.stremio-service
                 self.homeModules.zsh
             ];
