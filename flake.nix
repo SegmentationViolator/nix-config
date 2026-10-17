@@ -14,7 +14,7 @@
 
         import-tree.url = "github:vic/import-tree";
 
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
 
         nix-index-database = {
             url = "github:nix-community/nix-index-database";
