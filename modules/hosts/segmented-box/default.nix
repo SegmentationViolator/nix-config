@@ -10,7 +10,7 @@
             self.nixosModules.nvidia
             self.nixosModules.audio
 
-            self.nixosModules.doas
+            self.nixosModules.run0
 
             self.nixosModules.power-management
 
@@ -40,6 +40,7 @@
         programs = {
             git.enable = true;
             gnupg.agent.enable = true;
+            nh.enable = true;
         };
 
         services.bluevein.enable = true;
