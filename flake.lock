@@ -91,11 +91,11 @@
     },
     "mnw": {
       "locked": {
-        "lastModified": 1780772958,
-        "narHash": "sha256-VKKe8r4pwCGWZ3Yr9CPN129R4S3CKLSrlYqdYz3vKpM=",
+        "lastModified": 1784154424,
+        "narHash": "sha256-HRn4O1X2ShYtbq5Egji72/aemyc2cIQicjRZD9hBqM8=",
         "owner": "Gerg-L",
         "repo": "mnw",
-        "rev": "0871dbf63a53610c95db04439ed8ea4d6ec9c160",
+        "rev": "0151d9fa87992cbeb67c86616fb9170dcec830b6",
         "type": "github"
       },
       "original": {
@@ -194,11 +194,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788494938,
-        "narHash": "sha256-ozY1uUiOLXt3KLpUQwu8Y1DG+lKa53Gke7NW9gvUu3I=",
+        "lastModified": 1793152231,
+        "narHash": "sha256-hH7rK3yF7lMdrJYqF9cZbGheq8qNPgCYJDsfJovh7UY=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "5e4f212f8720c17fdd06f5c57591f251aff67453",
+        "rev": "0ae8788d14334c9dd4bcd68d951bee661b00ad87",
         "type": "github"
       },
       "original": {
@@ -224,11 +224,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788719124,
-        "narHash": "sha256-CLwhvsiu3FrMMQkKWYsrc+PYLt9QwdzzHCZiZl6VW7E=",
+        "lastModified": 1794304740,
+        "narHash": "sha256-3ReVF1ez2TYTMD8w08SVJefx2c8ow0QypARLw4PPN2U=",
         "owner": "SegmentationViolator",
         "repo": "nvf-config",
-        "rev": "514a79c59721870f973ef25483e8aad8fdbaab2f",
+        "rev": "612324cba5bca1dcf391ee1c0b10cb9648ef43c3",
         "type": "github"
       },
       "original": {
