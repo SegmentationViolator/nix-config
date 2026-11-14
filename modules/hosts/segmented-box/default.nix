@@ -31,6 +31,7 @@
         environment.systemPackages = with pkgs; [
             bat
             eza
+            zoxide
         ];
 
         i18n.defaultLocale = "en_US.UTF-8";

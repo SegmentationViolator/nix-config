@@ -18,8 +18,8 @@ _: {
             history = {
                 ignoreAllDups = true;
                 ignoreSpace = true;
-                save = 100;
-                size = 100;
+                save = 1000;
+                size = 1000;
             };
 
             historySubstringSearch = {
